@@ -64,3 +64,59 @@ void Benutzer::alege_film(string b)
 
 }
 
+
+void Benutzer::delete_from_watchlist(string a)
+{
+	int G = 0;
+	int i = 0;
+	while (i < l.size())
+	{
+		if (a == l[i].getterTitel())
+		{
+			G = 1;
+			cout << "Pentru Like apasati 1\n";
+			string h;
+			cin >> h;
+			if (h == "1")
+			{
+				l[i].growLikes();
+			}
+
+			l.erase(l.begin() + i);
+			cout << "Filmul a fost eliminat !\n";
+			return;
+		}
+		i++;
+	}
+	cout << "Filmul nu a fost gasit\n";
+}
+
+void Benutzer::delete_film(string a)
+{
+	int i = 0;
+	while (i < w.v.size())
+	{
+		if (a == w.v[i].getterTitel())
+		{
+			w.v.erase(w.v.begin() + i);
+			return;
+		}
+		i++;
+	}
+	cout << "Filmul nu a fost gasit\n";
+}
+
+void Benutzer::display()
+{
+	int i = 0;
+	while (i < l.size())
+	{
+		l[i].display();
+		i++;
+	}
+}
+
+void Benutzer::add_film(string titel, string gen, string url, int year, int likes)
+{
+	w.v.push_back(Film(titel, gen, url, year, 0));
+}
