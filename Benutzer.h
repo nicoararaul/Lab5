@@ -14,4 +14,5 @@ public:
 	void delete_from_watchlist(string);
 	void add_film(string, string, string, int, int);
 	void display();
+	void launch_notepad();
 };

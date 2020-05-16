@@ -13,7 +13,7 @@ void Benutzer::alege_film(string b)
 	int i = 0;
 	string opt;
 
-	while (i < w.v.size() || opt != "8")
+	while (i < w.v.size() || opt!="8")
 	{
 
 		if (w.v[i].getterGen() == b)
@@ -35,7 +35,8 @@ void Benutzer::alege_film(string b)
 
 			ShellExecute(NULL, "open", aux, NULL, NULL, SW_SHOWNORMAL);
 
-			cout << "V-a placut filmul?" << endl << "Daca v-a placut apasati 1\n";
+			cout << "V-a placut filmul ?" << endl;
+			cout << "Daca v-a placut apasati 1\n";
 
 			string n;
 			cin >> n;
@@ -45,7 +46,7 @@ void Benutzer::alege_film(string b)
 				return;
 			}
 		}
-
+		
 		cout << "Daca doriti sa va opriti apasati tasta 8\n";
 		cin >> opt;
 
@@ -89,6 +90,11 @@ void Benutzer::delete_from_watchlist(string a)
 		i++;
 	}
 	cout << "Filmul nu a fost gasit\n";
+}
+
+void Benutzer::launch_notepad()
+{
+	system("notepad.exe output.csv");
 }
 
 void Benutzer::delete_film(string a)
